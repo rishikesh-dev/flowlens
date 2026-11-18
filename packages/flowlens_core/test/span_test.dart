@@ -17,7 +17,7 @@ void main() {
     expect(span.duration.inMilliseconds, 2000);
   });
   test('calculate duration for a running span', () {
-    final start = DateTime.now().subtract(Duration(seconds: 2));
+    final start = DateTime.now().subtract(Duration(seconds: 2)).toUtc();
     final span = Span(
       spanId: 'span-2',
       traceId: 'trace-1',
@@ -28,7 +28,7 @@ void main() {
     expect(span.duration.inMilliseconds, 2000);
   });
   test('copyWith creates an updated span without modifying the original', () {
-    final start = DateTime.now().subtract(Duration(seconds: 2));
+    final start = DateTime.now().subtract(Duration(seconds: 2)).toUtc();
     final original = Span(
       spanId: 'span-2',
       traceId: 'trace-1',
