@@ -11,6 +11,7 @@ class Tracer {
       spanId: spanId,
       traceId: traceId,
       name: name,
+      parentSpanId: null,
       startTime: DateTime.now(),
       status: SpanStatus.running,
     );
