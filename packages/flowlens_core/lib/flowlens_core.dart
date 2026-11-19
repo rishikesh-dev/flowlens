@@ -3,6 +3,6 @@
 /// More dartdocs go here.
 library;
 
-export 'src/flowlens_core_base.dart';
-
-// TODO: Export any libraries intended for clients of this package.
+export 'src/models/span.dart';
+export 'src/tracing/trace_context.dart';
+export 'src/tracing/tracer.dart';
