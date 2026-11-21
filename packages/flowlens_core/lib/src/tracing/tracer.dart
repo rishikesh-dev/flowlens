@@ -1,6 +1,7 @@
-import '../models/span.dart';
-
 import 'package:uuid/uuid.dart';
+
+import '../models/span.dart';
+import 'trace_context.dart';
 
 class Tracer {
   final Uuid _uuid = Uuid();
@@ -12,6 +13,21 @@ class Tracer {
       traceId: traceId,
       name: name,
       parentSpanId: null,
+      startTime: DateTime.now(),
+      status: SpanStatus.running,
+    );
+  }
+
+  Span startChildSpan({
+    required TraceContext traceContext,
+    required String name,
+  }) {
+    final spanId = _uuid.v4();
+    return Span(
+      spanId: spanId,
+      traceId: traceContext.traceId,
+      parentSpanId: traceContext.parentSpanId,
+      name: name,
       startTime: DateTime.now(),
       status: SpanStatus.running,
     );
