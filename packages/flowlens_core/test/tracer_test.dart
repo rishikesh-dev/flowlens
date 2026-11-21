@@ -34,6 +34,9 @@ void main() {
       ),
       name: 'Hey 3',
     );
+
+    expect(tracerChildSpan.status, SpanStatus.running);
+    expect(tracerGrandChildSpan.status, SpanStatus.running);
     expect(tracerChildSpan.parentSpanId, tracerSpan.spanId);
     expect(tracerChildSpan.traceId, tracerSpan.traceId);
     expect(tracerChildSpan.spanId, isNot(tracerSpan.spanId));
